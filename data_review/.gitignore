@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+review.local.json
+tasks/*
+!tasks/.gitkeep
+raw_data/*
+!raw_data/.gitkeep
+*.log
+.checks/

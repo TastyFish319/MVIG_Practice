@@ -1,0 +1,8 @@
+# Python >=3.10；只做数据读取、检查与回放，不需要torch或设备SDK。
+numpy>=1.26,<3
+mcap==1.6.0
+protobuf>=4.25,<8
+zstandard>=0.23,<1
+lz4>=4.3,<5
+opencv-python-headless>=4.10,<6
+imageio-ffmpeg==0.6.0

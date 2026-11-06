@@ -1,0 +1,3 @@
+-r requirements.txt
+# 测试使用Python标准库unittest；无需另装测试框架。
+ruff>=0.12,<1

@@ -1,0 +1,56 @@
+# Task registry: task name -> weights folder(s), start pose, limits.
+#
+#   label             shown in the menu
+#   enabled           false = listed but not selectable
+#   checkpoint_dirs   folders searched (recursively) for pretrained_model/ checkpoints;
+#                     relative to this project, or absolute.  First one = main location.
+#   start_pose        14 values; the arms move here (smoothly) before every episode
+#   max_episode_s     the policy is stopped after this many seconds -> return to zero
+#   execution         default execution preset (configs/deploy.yaml execution.presets)
+#   model_overrides   optional, only if the checkpoint contracts are missing/wrong:
+#                       action_targets: [robot index per output dim]
+#                       relative_dims:  [output dims that are deltas]
+#                       action_offset_frames, fps, camera_map: {feature_key: camera_name}
+#
+# Adding a task: copy a block, create checkpoints/<dir>/, put <run>/pretrained_model/ there.
+
+tasks:
+  block_into_cup:
+    label: 蓝色积木放入蓝色杯子
+    enabled: true
+    checkpoint_dirs: [checkpoints/block_into_cup]
+    # Old deployment (SI configs/policy_infer/act/blue_block.yaml): first follower sample of
+    # episode_0039 selected by the user.
+    start_pose: [-1.1446173800259398, 0.8249408712901509, 1.789311055161365, -1.4379720759899275,
+                 -0.1688029297322, 0.12226291294727964, 0.9960354645714694,
+                 0.8302815289539947, 1.6000991836423282, 2.416838330663005, -1.5260929274433526,
+                 0.02574959945067512, -0.01926451514457561, 0.9981908965916488]
+    max_episode_s: 80.0
+    execution: chunk_10
+    model_overrides: {}
+
+  banana_into_bowl:
+    label: 香蕉放入碗（待配置）
+    enabled: false
+    checkpoint_dirs: [checkpoints/banana_into_bowl]
+    start_pose: [-1.1446173800259398, 0.8249408712901509, 1.789311055161365, -1.4379720759899275,
+                 -0.1688029297322, 0.12226291294727964, 0.9960354645714694,
+                 0.8302815289539947, 1.6000991836423282, 2.416838330663005, -1.5260929274433526,
+                 0.02574959945067512, -0.01926451514457561, 0.9981908965916488]
+    max_episode_s: 60.0
+    execution: chunk_10
+    model_overrides: {}
+
+  yellow_block_into_bowl:
+    label: 黄色积木放入红色碗
+    enabled: true
+    checkpoint_dirs: [checkpoints/yellow_block_into_bowl]
+    # Old deployment (SI configs/policy_infer/act/blue_block.yaml): first follower sample of
+    # episode_0039 selected by the user.
+    start_pose: [-1.1446173800259398, 0.8249408712901509, 1.789311055161365, -1.4379720759899275,
+                 -0.1688029297322, 0.12226291294727964, 0.9960354645714694,
+                 0.8302815289539947, 1.6000991836423282, 2.416838330663005, -1.5260929274433526,
+                 0.02574959945067512, -0.01926451514457561, 0.9981908965916488]
+    max_episode_s: 80.0
+    execution: chunk_10
+    model_overrides: {}

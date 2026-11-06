@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv*/
+# 大文件目录：只保留占位文件
+raw_data/*/episode_*
+dataset/*
+!dataset/.gitkeep
+pretrained/*
+!pretrained/.gitkeep
+runs/*
+!runs/.gitkeep
+*.zip
+*.partial/

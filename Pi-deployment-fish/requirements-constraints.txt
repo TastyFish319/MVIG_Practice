@@ -1,0 +1,3 @@
+# Pin the public versions so LeRobot cannot silently replace a preinstalled cu128 build.
+torch==2.8.0
+torchvision==0.23.0

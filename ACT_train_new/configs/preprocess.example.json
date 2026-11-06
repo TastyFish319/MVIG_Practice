@@ -1,0 +1,16 @@
+{
+  "approved_file": "task/task_approved.json",
+  "review_file": "task/task_review.json",
+  "task_id": "task",
+  "task_description": "将积木放入杯中",
+  "seed": 42,
+  "val_fraction": 0.2,
+  "fps": 20,
+  "action_offset_frames": 1,
+  "action_horizon": 32,
+  "max_source_age_ms": 100,
+  "image_size": 256,
+  "lerobot_version": "0.4.4",
+  "action_source": "leader",
+  "output": "../dataset/task_act"
+}

@@ -1,0 +1,8 @@
+{
+  "weights": {
+    "first4": 0.4,
+    "mean": 0.25,
+    "median": 0.2,
+    "maximum": 0.15
+  }
+}

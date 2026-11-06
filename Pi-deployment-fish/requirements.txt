@@ -1,0 +1,12 @@
+# 只安装到独立 Pi 模型环境（Python 3.12），不要安装到原设备环境。
+# 先装 torch==2.8.0 torchvision==0.23.0（官方 cu128 wheel）；见 docs/environment.md。
+# python -m pip install -r requirements.txt -i https://pypi.mirrors.ustc.edu.cn/simple
+-c requirements-constraints.txt
+lerobot[pi]==0.6.1
+transformers==5.5.4
+huggingface_hub==1.33.0
+safetensors==0.8.0
+numpy==2.2.6
+PyYAML>=6.0,<7
+# 模型/设备侧预处理与离线验收；设备环境原本已有时不重装。
+opencv-python-headless==4.13.0.92

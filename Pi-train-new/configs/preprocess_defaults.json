@@ -1,0 +1,19 @@
+{
+  "fps": 30,
+  "image_size": 224,
+  "cameras": ["right_wrist", "left_wrist"],
+  "action_arms": ["right"],
+  "val_ratio": 0.2,
+  "seed": 42,
+  "max_age_ms": 100,
+  "velocity_window_s": 0.1,
+  "trim_idle": true,
+  "idle_joint_tol_rad": 0.02,
+  "idle_grip_tol": 0.05,
+  "idle_margin_s": 0.5,
+  "workers": 8,
+  "task_prompts": {
+    "blue_block": "Pick the blue block from the blocks on the table and place it into the blue cup."
+  },
+  "default_prompt": "Complete the manipulation task."
+}

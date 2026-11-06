@@ -1,0 +1,1075 @@
+{
+  "queried_at_utc": "2026-11-03T07:46:46.244516+00:00",
+  "source_root": "/home/users/zhaoruiqi_yizu/output/Fish/Pi-train-new/runs",
+  "metadata_only": true,
+  "items": [
+    {
+      "run": "blue_block_2gpu_run1_18500steps",
+      "checkpoint": "step_016200",
+      "files": {
+        "config.json": {
+          "type": "pi05",
+          "n_obs_steps": 1,
+          "input_features": {
+            "observation.images.left_wrist": {
+              "type": "VISUAL",
+              "shape": [
+                3,
+                224,
+                224
+              ]
+            },
+            "observation.images.right_wrist": {
+              "type": "VISUAL",
+              "shape": [
+                3,
+                224,
+                224
+              ]
+            },
+            "observation.state": {
+              "type": "STATE",
+              "shape": [
+                14
+              ]
+            }
+          },
+          "output_features": {
+            "action": {
+              "type": "ACTION",
+              "shape": [
+                7
+              ]
+            }
+          },
+          "device": "cuda",
+          "use_amp": false,
+          "use_peft": false,
+          "push_to_hub": true,
+          "repo_id": null,
+          "private": null,
+          "tags": null,
+          "license": null,
+          "pretrained_path": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/pi05_base",
+          "pretrained_revision": null,
+          "paligemma_variant": "gemma_2b",
+          "action_expert_variant": "gemma_300m",
+          "dtype": "bfloat16",
+          "chunk_size": 50,
+          "n_action_steps": 15,
+          "max_state_dim": 32,
+          "max_action_dim": 32,
+          "num_inference_steps": 10,
+          "time_sampling_beta_alpha": 1.5,
+          "time_sampling_beta_beta": 1.0,
+          "time_sampling_scale": 0.999,
+          "time_sampling_offset": 0.001,
+          "min_period": 0.004,
+          "max_period": 4.0,
+          "use_relative_actions": true,
+          "relative_exclude_joints": [
+            "gripper"
+          ],
+          "action_feature_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper"
+          ],
+          "rtc_config": null,
+          "image_resolution": [
+            224,
+            224
+          ],
+          "empty_cameras": 0,
+          "tokenizer_max_length": 96,
+          "normalization_mapping": {
+            "VISUAL": "IDENTITY",
+            "STATE": "QUANTILES",
+            "ACTION": "QUANTILES"
+          },
+          "gradient_checkpointing": true,
+          "compile_model": false,
+          "compile_mode": "max-autotune",
+          "freeze_vision_encoder": false,
+          "train_expert_only": false,
+          "optimizer_lr": 2.5e-05,
+          "optimizer_betas": [
+            0.9,
+            0.95
+          ],
+          "optimizer_eps": 1e-08,
+          "optimizer_weight_decay": 0.01,
+          "optimizer_grad_clip_norm": 1.0,
+          "scheduler_warmup_steps": 1000,
+          "scheduler_decay_steps": 30000,
+          "scheduler_decay_lr": 2.5e-06
+        },
+        "pitrain_contract.json": {
+          "dataset": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/dataset/blue_block_v2_12val",
+          "dataset_name": "blue_block_v2_12val",
+          "prompt": "Pick the blue block from the blocks on the table and place it into the blue cup.",
+          "fps": 30,
+          "use_velocity": false,
+          "image_keys": [
+            "observation.images.right_wrist",
+            "observation.images.left_wrist"
+          ],
+          "state_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper",
+            "left_joint0",
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_gripper"
+          ],
+          "action_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper"
+          ],
+          "chunk_size": 50,
+          "n_action_steps": 15,
+          "action_representation": "关节: 相对(leader - 当前follower)；夹爪: 绝对 leader",
+          "gripper_filter": {
+            "knee": 0.355,
+            "floor": 0.225,
+            "enabled": true
+          },
+          "train_config": {
+            "dataset": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/dataset/blue_block_v2_12val",
+            "output": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/runs/blue_block_2gpu_run1_18500steps",
+            "run_name": "blue_block_2gpu_run1_18500steps",
+            "pretrained": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/pi05_base",
+            "tokenizer": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/paligemma_tokenizer",
+            "use_velocity": false,
+            "gpus": 2,
+            "batch_size_per_gpu": 16,
+            "steps": 18500,
+            "num_workers": 10,
+            "seed": 42,
+            "lr": 2.5e-05,
+            "weight_decay": 0.01,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "grad_clip": 1.0,
+            "warmup_steps": 900,
+            "scheduler": "cosine",
+            "cosine_final_ratio": 0.1,
+            "steplr_step_size": 6200,
+            "steplr_gamma": 0.5,
+            "chunk_size": 50,
+            "n_action_steps": 15,
+            "num_inference_steps": 10,
+            "freeze_vision_encoder": false,
+            "train_expert_only": false,
+            "gradient_checkpointing": true,
+            "tokenizer_max_length": 96,
+            "image_augmentation": true,
+            "val_every": 1800,
+            "val_loss_samples": 512,
+            "val_infer_samples": 128,
+            "best_metric": "val_nmae",
+            "keep_top_k": 2,
+            "log_every": 20,
+            "min_state_span": 0.2,
+            "min_velocity_span": 0.5,
+            "min_action_span": 0.05,
+            "device": "cuda",
+            "extra": {}
+          },
+          "step": 16200,
+          "val_metrics": {
+            "val_loss": 0.15099324262700975,
+            "val_nmae": 0.1354695970604891,
+            "val_nmae_first": 0.07479932965916401,
+            "val_joint_mae_deg_first": 2.421776162799812,
+            "val_joint_mae_deg_full": 4.488545538275774,
+            "val_gripper_mae_first": 0.03543067108496008,
+            "val_gripper_mae_full": 0.05975145366055438,
+            "val_seconds": 20.2
+          }
+        },
+        "policy_preprocessor.json": {
+          "name": "policy_preprocessor",
+          "steps": [
+            {
+              "registry_name": "rename_observations_processor",
+              "config": {
+                "rename_map": {}
+              }
+            },
+            {
+              "registry_name": "to_batch_processor",
+              "config": {}
+            },
+            {
+              "registry_name": "relative_actions_processor",
+              "config": {
+                "enabled": true,
+                "exclude_joints": [
+                  "gripper"
+                ],
+                "action_names": [
+                  "right_joint0",
+                  "right_joint1",
+                  "right_joint2",
+                  "right_joint3",
+                  "right_joint4",
+                  "right_joint5",
+                  "right_gripper"
+                ]
+              }
+            },
+            {
+              "registry_name": "normalizer_processor",
+              "config": {
+                "eps": 1e-08,
+                "features": {
+                  "observation.images.left_wrist": {
+                    "type": "VISUAL",
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ]
+                  },
+                  "observation.images.right_wrist": {
+                    "type": "VISUAL",
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ]
+                  },
+                  "observation.state": {
+                    "type": "STATE",
+                    "shape": [
+                      14
+                    ]
+                  },
+                  "action": {
+                    "type": "ACTION",
+                    "shape": [
+                      7
+                    ]
+                  }
+                },
+                "norm_map": {
+                  "VISUAL": "IDENTITY",
+                  "STATE": "QUANTILES",
+                  "ACTION": "QUANTILES"
+                }
+              },
+              "state_file": "policy_preprocessor_step_3_normalizer_processor.safetensors"
+            },
+            {
+              "registry_name": "pi05_prepare_state_tokenizer_processor_step",
+              "config": {}
+            },
+            {
+              "registry_name": "tokenizer_processor",
+              "config": {
+                "max_length": 96,
+                "task_key": "task",
+                "padding_side": "right",
+                "padding": "max_length",
+                "truncation": true,
+                "tokenizer_name": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/paligemma_tokenizer"
+              }
+            },
+            {
+              "registry_name": "device_processor",
+              "config": {
+                "device": "cuda",
+                "float_dtype": null
+              }
+            }
+          ]
+        },
+        "policy_postprocessor.json": {
+          "name": "policy_postprocessor",
+          "steps": [
+            {
+              "registry_name": "unnormalizer_processor",
+              "config": {
+                "eps": 1e-08,
+                "features": {
+                  "action": {
+                    "type": "ACTION",
+                    "shape": [
+                      7
+                    ]
+                  }
+                },
+                "norm_map": {
+                  "VISUAL": "IDENTITY",
+                  "STATE": "QUANTILES",
+                  "ACTION": "QUANTILES"
+                }
+              },
+              "state_file": "policy_postprocessor_step_0_unnormalizer_processor.safetensors"
+            },
+            {
+              "registry_name": "absolute_actions_processor",
+              "config": {
+                "enabled": true
+              }
+            },
+            {
+              "registry_name": "device_processor",
+              "config": {
+                "device": "cpu",
+                "float_dtype": null
+              }
+            }
+          ]
+        }
+      },
+      "weight_bytes": 9354050752
+    },
+    {
+      "run": "fold_towel_1gpu_run1_10000steps",
+      "checkpoint": "final",
+      "files": {
+        "config.json": {
+          "type": "pi05",
+          "n_obs_steps": 1,
+          "input_features": {
+            "observation.images.left_wrist": {
+              "type": "VISUAL",
+              "shape": [
+                3,
+                224,
+                224
+              ]
+            },
+            "observation.images.right_wrist": {
+              "type": "VISUAL",
+              "shape": [
+                3,
+                224,
+                224
+              ]
+            },
+            "observation.state": {
+              "type": "STATE",
+              "shape": [
+                14
+              ]
+            }
+          },
+          "output_features": {
+            "action": {
+              "type": "ACTION",
+              "shape": [
+                14
+              ]
+            }
+          },
+          "device": "cuda",
+          "use_amp": false,
+          "use_peft": false,
+          "push_to_hub": true,
+          "repo_id": null,
+          "private": null,
+          "tags": null,
+          "license": null,
+          "pretrained_path": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/pi05_base",
+          "pretrained_revision": null,
+          "paligemma_variant": "gemma_2b",
+          "action_expert_variant": "gemma_300m",
+          "dtype": "bfloat16",
+          "chunk_size": 50,
+          "n_action_steps": 15,
+          "max_state_dim": 32,
+          "max_action_dim": 32,
+          "num_inference_steps": 10,
+          "time_sampling_beta_alpha": 1.5,
+          "time_sampling_beta_beta": 1.0,
+          "time_sampling_scale": 0.999,
+          "time_sampling_offset": 0.001,
+          "min_period": 0.004,
+          "max_period": 4.0,
+          "use_relative_actions": true,
+          "relative_exclude_joints": [
+            "gripper"
+          ],
+          "action_feature_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper",
+            "left_joint0",
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_gripper"
+          ],
+          "rtc_config": null,
+          "image_resolution": [
+            224,
+            224
+          ],
+          "empty_cameras": 0,
+          "tokenizer_max_length": 96,
+          "normalization_mapping": {
+            "VISUAL": "IDENTITY",
+            "STATE": "QUANTILES",
+            "ACTION": "QUANTILES"
+          },
+          "gradient_checkpointing": true,
+          "compile_model": false,
+          "compile_mode": "max-autotune",
+          "freeze_vision_encoder": false,
+          "train_expert_only": false,
+          "optimizer_lr": 2.5e-05,
+          "optimizer_betas": [
+            0.9,
+            0.95
+          ],
+          "optimizer_eps": 1e-08,
+          "optimizer_weight_decay": 0.01,
+          "optimizer_grad_clip_norm": 1.0,
+          "scheduler_warmup_steps": 1000,
+          "scheduler_decay_steps": 30000,
+          "scheduler_decay_lr": 2.5e-06
+        },
+        "pitrain_contract.json": {
+          "dataset": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/dataset/fold_towel_both",
+          "dataset_name": "fold_towel_both",
+          "prompt": "Grasp the far edge of the towel on the table with both hands and fold it backward.",
+          "fps": 30,
+          "use_velocity": false,
+          "image_keys": [
+            "observation.images.right_wrist",
+            "observation.images.left_wrist"
+          ],
+          "state_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper",
+            "left_joint0",
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_gripper"
+          ],
+          "action_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper",
+            "left_joint0",
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_gripper"
+          ],
+          "chunk_size": 50,
+          "n_action_steps": 15,
+          "action_representation": "关节: 相对(leader - 当前follower)；夹爪: 绝对 leader",
+          "gripper_filter": {
+            "knee": 0.393,
+            "floor": 0.263,
+            "enabled": true
+          },
+          "train_config": {
+            "dataset": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/dataset/fold_towel_both",
+            "output": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/runs/fold_towel_1gpu_run1_10000steps",
+            "run_name": "fold_towel_1gpu_run1_10000steps",
+            "pretrained": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/pi05_base",
+            "tokenizer": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/paligemma_tokenizer",
+            "use_velocity": false,
+            "gpus": 1,
+            "batch_size_per_gpu": 32,
+            "steps": 10000,
+            "num_workers": 8,
+            "seed": 42,
+            "lr": 2.5e-05,
+            "weight_decay": 0.01,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "grad_clip": 1.0,
+            "warmup_steps": 500,
+            "scheduler": "cosine",
+            "cosine_final_ratio": 0.1,
+            "steplr_step_size": 3300,
+            "steplr_gamma": 0.5,
+            "chunk_size": 50,
+            "n_action_steps": 15,
+            "num_inference_steps": 10,
+            "freeze_vision_encoder": false,
+            "train_expert_only": false,
+            "gradient_checkpointing": true,
+            "tokenizer_max_length": 96,
+            "image_augmentation": true,
+            "val_every": 1000,
+            "val_loss_samples": 512,
+            "val_infer_samples": 128,
+            "best_metric": "val_nmae",
+            "keep_top_k": 2,
+            "log_every": 20,
+            "min_state_span": 0.2,
+            "min_velocity_span": 0.5,
+            "min_action_span": 0.05,
+            "device": "cuda",
+            "extra": {}
+          },
+          "step": 10000,
+          "val_metrics": {
+            "val_loss": 0.1682702056132257,
+            "val_nmae": 0.13483229751384293,
+            "val_nmae_first": 0.0822917390314346,
+            "val_joint_mae_deg_first": 1.696636552900256,
+            "val_joint_mae_deg_full": 2.881570967023547,
+            "val_gripper_mae_first": 0.024495666082300502,
+            "val_gripper_mae_full": 0.05031447072411581,
+            "val_seconds": 37.6
+          }
+        },
+        "policy_preprocessor.json": {
+          "name": "policy_preprocessor",
+          "steps": [
+            {
+              "registry_name": "rename_observations_processor",
+              "config": {
+                "rename_map": {}
+              }
+            },
+            {
+              "registry_name": "to_batch_processor",
+              "config": {}
+            },
+            {
+              "registry_name": "relative_actions_processor",
+              "config": {
+                "enabled": true,
+                "exclude_joints": [
+                  "gripper"
+                ],
+                "action_names": [
+                  "right_joint0",
+                  "right_joint1",
+                  "right_joint2",
+                  "right_joint3",
+                  "right_joint4",
+                  "right_joint5",
+                  "right_gripper",
+                  "left_joint0",
+                  "left_joint1",
+                  "left_joint2",
+                  "left_joint3",
+                  "left_joint4",
+                  "left_joint5",
+                  "left_gripper"
+                ]
+              }
+            },
+            {
+              "registry_name": "normalizer_processor",
+              "config": {
+                "eps": 1e-08,
+                "features": {
+                  "observation.images.left_wrist": {
+                    "type": "VISUAL",
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ]
+                  },
+                  "observation.images.right_wrist": {
+                    "type": "VISUAL",
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ]
+                  },
+                  "observation.state": {
+                    "type": "STATE",
+                    "shape": [
+                      14
+                    ]
+                  },
+                  "action": {
+                    "type": "ACTION",
+                    "shape": [
+                      14
+                    ]
+                  }
+                },
+                "norm_map": {
+                  "VISUAL": "IDENTITY",
+                  "STATE": "QUANTILES",
+                  "ACTION": "QUANTILES"
+                }
+              },
+              "state_file": "policy_preprocessor_step_3_normalizer_processor.safetensors"
+            },
+            {
+              "registry_name": "pi05_prepare_state_tokenizer_processor_step",
+              "config": {}
+            },
+            {
+              "registry_name": "tokenizer_processor",
+              "config": {
+                "max_length": 96,
+                "task_key": "task",
+                "padding_side": "right",
+                "padding": "max_length",
+                "truncation": true,
+                "tokenizer_name": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/paligemma_tokenizer"
+              }
+            },
+            {
+              "registry_name": "device_processor",
+              "config": {
+                "device": "cuda",
+                "float_dtype": null
+              }
+            }
+          ]
+        },
+        "policy_postprocessor.json": {
+          "name": "policy_postprocessor",
+          "steps": [
+            {
+              "registry_name": "unnormalizer_processor",
+              "config": {
+                "eps": 1e-08,
+                "features": {
+                  "action": {
+                    "type": "ACTION",
+                    "shape": [
+                      14
+                    ]
+                  }
+                },
+                "norm_map": {
+                  "VISUAL": "IDENTITY",
+                  "STATE": "QUANTILES",
+                  "ACTION": "QUANTILES"
+                }
+              },
+              "state_file": "policy_postprocessor_step_0_unnormalizer_processor.safetensors"
+            },
+            {
+              "registry_name": "absolute_actions_processor",
+              "config": {
+                "enabled": true
+              }
+            },
+            {
+              "registry_name": "device_processor",
+              "config": {
+                "device": "cpu",
+                "float_dtype": null
+              }
+            }
+          ]
+        }
+      },
+      "weight_bytes": 9354050752
+    },
+    {
+      "run": "open_canister_run1_10500steps",
+      "checkpoint": "final",
+      "files": {
+        "config.json": {
+          "type": "pi05",
+          "n_obs_steps": 1,
+          "input_features": {
+            "observation.images.left_wrist": {
+              "type": "VISUAL",
+              "shape": [
+                3,
+                224,
+                224
+              ]
+            },
+            "observation.images.right_wrist": {
+              "type": "VISUAL",
+              "shape": [
+                3,
+                224,
+                224
+              ]
+            },
+            "observation.state": {
+              "type": "STATE",
+              "shape": [
+                14
+              ]
+            }
+          },
+          "output_features": {
+            "action": {
+              "type": "ACTION",
+              "shape": [
+                14
+              ]
+            }
+          },
+          "device": "cuda",
+          "use_amp": false,
+          "use_peft": false,
+          "push_to_hub": true,
+          "repo_id": null,
+          "private": null,
+          "tags": null,
+          "license": null,
+          "pretrained_path": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/pi05_base",
+          "pretrained_revision": null,
+          "paligemma_variant": "gemma_2b",
+          "action_expert_variant": "gemma_300m",
+          "dtype": "bfloat16",
+          "chunk_size": 50,
+          "n_action_steps": 15,
+          "max_state_dim": 32,
+          "max_action_dim": 32,
+          "num_inference_steps": 10,
+          "time_sampling_beta_alpha": 1.5,
+          "time_sampling_beta_beta": 1.0,
+          "time_sampling_scale": 0.999,
+          "time_sampling_offset": 0.001,
+          "min_period": 0.004,
+          "max_period": 4.0,
+          "use_relative_actions": true,
+          "relative_exclude_joints": [
+            "gripper"
+          ],
+          "action_feature_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper",
+            "left_joint0",
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_gripper"
+          ],
+          "rtc_config": null,
+          "image_resolution": [
+            224,
+            224
+          ],
+          "empty_cameras": 0,
+          "tokenizer_max_length": 112,
+          "normalization_mapping": {
+            "VISUAL": "IDENTITY",
+            "STATE": "QUANTILES",
+            "ACTION": "QUANTILES"
+          },
+          "gradient_checkpointing": true,
+          "compile_model": false,
+          "compile_mode": "max-autotune",
+          "freeze_vision_encoder": false,
+          "train_expert_only": false,
+          "optimizer_lr": 2.5e-05,
+          "optimizer_betas": [
+            0.9,
+            0.95
+          ],
+          "optimizer_eps": 1e-08,
+          "optimizer_weight_decay": 0.01,
+          "optimizer_grad_clip_norm": 1.0,
+          "scheduler_warmup_steps": 1000,
+          "scheduler_decay_steps": 30000,
+          "scheduler_decay_lr": 2.5e-06
+        },
+        "pitrain_contract.json": {
+          "dataset": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/dataset/open_canister_both_7val",
+          "dataset_name": "open_canister_both_7val",
+          "prompt": "Pick up the red cardboard canister with your left hand, remove its lid with your right hand, then place both back on the table.",
+          "fps": 30,
+          "use_velocity": false,
+          "image_keys": [
+            "observation.images.right_wrist",
+            "observation.images.left_wrist"
+          ],
+          "state_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper",
+            "left_joint0",
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_gripper"
+          ],
+          "action_names": [
+            "right_joint0",
+            "right_joint1",
+            "right_joint2",
+            "right_joint3",
+            "right_joint4",
+            "right_joint5",
+            "right_gripper",
+            "left_joint0",
+            "left_joint1",
+            "left_joint2",
+            "left_joint3",
+            "left_joint4",
+            "left_joint5",
+            "left_gripper"
+          ],
+          "chunk_size": 50,
+          "n_action_steps": 15,
+          "action_representation": "关节: 相对(leader - 当前follower)；夹爪: 绝对 leader",
+          "gripper_filter": {
+            "knee": 0.587,
+            "floor": 0.457,
+            "enabled": true
+          },
+          "train_config": {
+            "dataset": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/dataset/open_canister_both_7val",
+            "output": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/runs/open_canister_run1_10500steps",
+            "run_name": "open_canister_run1_10500steps",
+            "pretrained": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/pi05_base",
+            "tokenizer": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/paligemma_tokenizer",
+            "use_velocity": false,
+            "gpus": 1,
+            "batch_size_per_gpu": 32,
+            "steps": 10500,
+            "num_workers": 8,
+            "seed": 42,
+            "lr": 2.5e-05,
+            "weight_decay": 0.01,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "grad_clip": 1.0,
+            "warmup_steps": 500,
+            "scheduler": "cosine",
+            "cosine_final_ratio": 0.1,
+            "steplr_step_size": 3500,
+            "steplr_gamma": 0.5,
+            "chunk_size": 50,
+            "n_action_steps": 15,
+            "num_inference_steps": 10,
+            "freeze_vision_encoder": false,
+            "train_expert_only": false,
+            "gradient_checkpointing": true,
+            "tokenizer_max_length": 112,
+            "image_augmentation": true,
+            "val_every": 1000,
+            "val_loss_samples": 512,
+            "val_infer_samples": 128,
+            "best_metric": "val_nmae",
+            "keep_top_k": 2,
+            "log_every": 20,
+            "min_state_span": 0.2,
+            "min_velocity_span": 0.5,
+            "min_action_span": 0.05,
+            "device": "cuda",
+            "extra": {}
+          },
+          "step": 10500,
+          "val_metrics": {
+            "val_loss": 0.1226767054758966,
+            "val_nmae": 0.10354170005793821,
+            "val_nmae_first": 0.06372780710519128,
+            "val_joint_mae_deg_first": 1.9532321586916346,
+            "val_joint_mae_deg_full": 3.348990333618952,
+            "val_gripper_mae_first": 0.06447443974106846,
+            "val_gripper_mae_full": 0.08710145682496019,
+            "val_seconds": 38.9
+          }
+        },
+        "policy_preprocessor.json": {
+          "name": "policy_preprocessor",
+          "steps": [
+            {
+              "registry_name": "rename_observations_processor",
+              "config": {
+                "rename_map": {}
+              }
+            },
+            {
+              "registry_name": "to_batch_processor",
+              "config": {}
+            },
+            {
+              "registry_name": "relative_actions_processor",
+              "config": {
+                "enabled": true,
+                "exclude_joints": [
+                  "gripper"
+                ],
+                "action_names": [
+                  "right_joint0",
+                  "right_joint1",
+                  "right_joint2",
+                  "right_joint3",
+                  "right_joint4",
+                  "right_joint5",
+                  "right_gripper",
+                  "left_joint0",
+                  "left_joint1",
+                  "left_joint2",
+                  "left_joint3",
+                  "left_joint4",
+                  "left_joint5",
+                  "left_gripper"
+                ]
+              }
+            },
+            {
+              "registry_name": "normalizer_processor",
+              "config": {
+                "eps": 1e-08,
+                "features": {
+                  "observation.images.left_wrist": {
+                    "type": "VISUAL",
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ]
+                  },
+                  "observation.images.right_wrist": {
+                    "type": "VISUAL",
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ]
+                  },
+                  "observation.state": {
+                    "type": "STATE",
+                    "shape": [
+                      14
+                    ]
+                  },
+                  "action": {
+                    "type": "ACTION",
+                    "shape": [
+                      14
+                    ]
+                  }
+                },
+                "norm_map": {
+                  "VISUAL": "IDENTITY",
+                  "STATE": "QUANTILES",
+                  "ACTION": "QUANTILES"
+                }
+              },
+              "state_file": "policy_preprocessor_step_3_normalizer_processor.safetensors"
+            },
+            {
+              "registry_name": "pi05_prepare_state_tokenizer_processor_step",
+              "config": {}
+            },
+            {
+              "registry_name": "tokenizer_processor",
+              "config": {
+                "max_length": 112,
+                "task_key": "task",
+                "padding_side": "right",
+                "padding": "max_length",
+                "truncation": true,
+                "tokenizer_name": "/dm3/cpfs-output/zhaoruiqi_yizu/output/Fish/Pi-train-new/pretrained/paligemma_tokenizer"
+              }
+            },
+            {
+              "registry_name": "device_processor",
+              "config": {
+                "device": "cuda",
+                "float_dtype": null
+              }
+            }
+          ]
+        },
+        "policy_postprocessor.json": {
+          "name": "policy_postprocessor",
+          "steps": [
+            {
+              "registry_name": "unnormalizer_processor",
+              "config": {
+                "eps": 1e-08,
+                "features": {
+                  "action": {
+                    "type": "ACTION",
+                    "shape": [
+                      14
+                    ]
+                  }
+                },
+                "norm_map": {
+                  "VISUAL": "IDENTITY",
+                  "STATE": "QUANTILES",
+                  "ACTION": "QUANTILES"
+                }
+              },
+              "state_file": "policy_postprocessor_step_0_unnormalizer_processor.safetensors"
+            },
+            {
+              "registry_name": "absolute_actions_processor",
+              "config": {
+                "enabled": true
+              }
+            },
+            {
+              "registry_name": "device_processor",
+              "config": {
+                "device": "cpu",
+                "float_dtype": null
+              }
+            }
+          ]
+        }
+      },
+      "weight_bytes": 9354050752
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=71"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pitrain"
+version = "0.1.0"
+description = "pi0.5 (LeRobot) fine-tuning pipeline for I2RT YAM teleoperation data"
+requires-python = ">=3.12"
+
+[tool.setuptools.packages.find]
+include = ["pitrain*"]
+
+[tool.pyright]
+venvPath = "C:/Users/TastyFish/miniconda3/envs"
+venv = "pi_fish_dev"
+pythonVersion = "3.12"
+include = ["pitrain", "tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"

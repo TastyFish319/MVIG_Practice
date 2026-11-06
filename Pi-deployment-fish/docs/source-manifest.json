@@ -1,0 +1,226 @@
+[
+  {
+    "source": "ACT_deployment_new/act_deploy/config.py",
+    "target": "pi_deploy/config.py",
+    "sha256": "f6c5c811a927a930a295a49e4ecca653ec6cebc41a887b1e78da1279e231d11e"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/ipc.py",
+    "target": "pi_deploy/ipc.py",
+    "sha256": "0234cb2b680ce7fb1eb15212bb3686e838412095d11d53c3f97bb3638f1d7c28"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/registry.py",
+    "target": "pi_deploy/registry.py",
+    "sha256": "bef3a028c394cc7bd20f87a968b7519b18d1eb185b49400eb0b74cf718d9a9e9"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/__init__.py",
+    "target": "pi_deploy/__init__.py",
+    "sha256": "b8ce958ea8f49110c55fb6c0344ad60269d5c00e74a4d22410c0d6bdb9b3638a"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/app/console.py",
+    "target": "pi_deploy/app/console.py",
+    "sha256": "f29888d2c409dabef9d5226d1a9ac9aef7d54e5b6709b29e2012eecc671bed0f"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/app/engine.py",
+    "target": "pi_deploy/app/engine.py",
+    "sha256": "22d265c96c5751a5d9aba945fc3320c9b5d8a4ec1c68f0a9d951e62a5a931a9b"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/app/main.py",
+    "target": "pi_deploy/app/main.py",
+    "sha256": "c54a03776000be25492c4bd722afc6ff4d965a70372278f626cd2a3ef59a176d"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/app/recorder.py",
+    "target": "pi_deploy/app/recorder.py",
+    "sha256": "d20e92cffb2bddec309a5df3637b0a13735aff1970154721c97d2fbf54ace127"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/app/__init__.py",
+    "target": "pi_deploy/app/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/control/history.py",
+    "target": "pi_deploy/control/history.py",
+    "sha256": "470415467ca10db37cf90caca30e264ae39a66fba0afd52c2ba1eebd122e2046"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/control/safety.py",
+    "target": "pi_deploy/control/safety.py",
+    "sha256": "7501127e0ecfe80d99363e22dfad81b73653cbb1b4dbd19e26b56bddb9e25cb6"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/control/scheduler.py",
+    "target": "pi_deploy/control/scheduler.py",
+    "sha256": "ab48355a7fdc17a092a294b993e58c01882a7042cc78372be89518909d8add81"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/control/trajectory.py",
+    "target": "pi_deploy/control/trajectory.py",
+    "sha256": "4dcb412b17b490fec0870c8a2b079c25cebd488a1102311443dc797bbb0e2ada"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/control/__init__.py",
+    "target": "pi_deploy/control/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/arms.py",
+    "target": "pi_deploy/hw/arms.py",
+    "sha256": "b9024692500a14fe453b0515bdeaa8c4adde7b3d966425a82edb688909bab7c9"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/cameras.py",
+    "target": "pi_deploy/hw/cameras.py",
+    "sha256": "2dd018f4edd12b74aed47a807abad12462e49abd1bdb1d62a35f648be6b8124e"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/preflight.py",
+    "target": "pi_deploy/hw/preflight.py",
+    "sha256": "0892019bf68b9f5a083c5996b6c4106f79b6f6fcc52b2f3f66e64d641382cb23"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/__init__.py",
+    "target": "pi_deploy/hw/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/model/features.py",
+    "target": "pi_deploy/model/features.py",
+    "sha256": "d1730bc437eb237f3abfda50e6609270df197a5ea2b931c5d4a7c57bf484e15a"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/model/spec.py",
+    "target": "pi_deploy/model/spec.py",
+    "sha256": "1a3ea1b8d6b1cfe9edb813f4b090c9bcf01f4a8504df2252fd6bb9053490e6a2"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/model/__init__.py",
+    "target": "pi_deploy/model/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/server/policy_server.py",
+    "target": "pi_deploy/server/policy_server.py",
+    "sha256": "25a1fea9e2da4fd8bcd7101281ad5fe2e980891597bdb67677af2ea712884fe2"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/server/__init__.py",
+    "target": "pi_deploy/server/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/tools/check_env.py",
+    "target": "pi_deploy/tools/check_env.py",
+    "sha256": "0495c33d8c0866798ddecc3c3e27ab2b528b565c576b1d974d1e6ce4061cd517"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/tools/rescue.py",
+    "target": "pi_deploy/tools/rescue.py",
+    "sha256": "97af1060c3b7a0e9776ad0bc982d4e55a385719fbaa463679e0826139928f6db"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/tools/selftest.py",
+    "target": "pi_deploy/tools/selftest.py",
+    "sha256": "490cc2afc20f1d0111e8b7666b85a6f6a0296b917b0b64596f9b72a83bff8bce"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/tools/__init__.py",
+    "target": "pi_deploy/tools/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/follower/config.py",
+    "target": "pi_deploy/hw/follower/config.py",
+    "sha256": "b6c0e6c833cdb8bb717a9a157a79e488f9adba11e483ffb2c5a79868120528ea"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/follower/endpoints.py",
+    "target": "pi_deploy/hw/follower/endpoints.py",
+    "sha256": "5d106976dc6306f177a22523b0694d1effd47039bb24f3a0884e3f7c27f34fcd"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/follower/runtime.py",
+    "target": "pi_deploy/hw/follower/runtime.py",
+    "sha256": "1bda5ebb28fe92c2ade55473c1622853cb6bef6c67ea270d8a55d559ab3300f3"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/follower/worker.py",
+    "target": "pi_deploy/hw/follower/worker.py",
+    "sha256": "ec548e78aa466b0c8b339e81b4373d125d0cc4dba268023a2bcc6dc1345acb1a"
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/hw/follower/__init__.py",
+    "target": "pi_deploy/hw/follower/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "ACT_deployment_new/configs/deploy.yaml",
+    "target": "configs/deploy.yaml",
+    "sha256": "d3e1fd2ad213d13e0f26f36bb9e2004b1514046408712b1354033cc98e12e9e4"
+  },
+  {
+    "source": "ACT_deployment_new/configs/hardware.yaml",
+    "target": "configs/hardware.yaml",
+    "sha256": "2bb9adaf21fe2454f3ab04058e3fa46eee8908e673e15df82afe53206906079b"
+  },
+  {
+    "source": "ACT_deployment_new/configs/tasks.yaml",
+    "target": "configs/tasks.yaml",
+    "sha256": "e4e325339659512f179009fd29ac82481d3e0d1abd02e64677c7bbaa9470b1c6"
+  },
+  {
+    "source": "ACT_deployment_new/start.sh",
+    "target": "start.sh",
+    "sha256": "e2219b2f163f482874ab67fb1843514a06ced68478873fdbfe63b56e6a2e535a"
+  },
+  {
+    "source": "ACT_deployment_new/local.env.example",
+    "target": "local.env.example",
+    "sha256": "e9ba15bcd3915fed468744cb9955e784f3637579f0feffc1404799a69081ff4d"
+  },
+  {
+    "source": "Pi-train-new/pitrain/inference.py",
+    "target": "pi_deploy/inference/inference.py",
+    "sha256": "f287902cd50497f5833671f332ef2dc8ddbaf9b3cc5392e0edc9dbf0c8c6e514"
+  },
+  {
+    "source": "Pi-train-new/pitrain/gripper.py",
+    "target": "pi_deploy/inference/gripper.py",
+    "sha256": "12c0058edfd0a534e594edb2527df87126d74fb52213bdfd75af1ab504768c31"
+  },
+  {
+    "source": "Pi-train-new/pitrain/policy_factory.py",
+    "target": "pi_deploy/inference/policy_factory.py",
+    "sha256": "12722dff62ff44d41273dff35acbfe25c14c275c4b5eced46c984f55f57b38e3",
+    "selected": [
+      "_verify_weights_loaded",
+      "predict_chunk",
+      "build_processors",
+      "load_checkpoint"
+    ]
+  },
+  {
+    "source": "ACT_deployment_new/act_deploy/model/spec.py",
+    "target": "pi_deploy/model/stats.py",
+    "selected": [
+      "_read",
+      "read_safetensors",
+      "normalizer_stats"
+    ],
+    "sha256": "1a3ea1b8d6b1cfe9edb813f4b090c9bcf01f4a8504df2252fd6bb9053490e6a2"
+  },
+  {
+    "source": "Pi-train-new/pitrain/data.py",
+    "target": "pi_deploy/inference/data.py",
+    "selected": [
+      "compose_batch"
+    ],
+    "sha256": "bc55cd108bb272ea39708a57ee2c86fe7297ee380b971889c2226bc2a7a8022b"
+  }
+]

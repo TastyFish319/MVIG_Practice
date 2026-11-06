@@ -1,0 +1,15 @@
+{
+  "_comment": "评分 = Σ 权重 × 子分。误差类子分 = 100 × exp(-误差 / 容差)：误差等于容差时得 37 分，误差为容差一半时得 61 分。F1 类子分 = 100 × F1。",
+  "gripper_closed_threshold": 0.5,
+  "max_episodes": 8,
+  "metrics": {
+    "joint_mae_first_deg":  {"weight": 0.25, "tolerance": 2.0, "label": "关节误差·近期(前n步)", "unit": "°"},
+    "exec_traj_mae_deg":    {"weight": 0.20, "tolerance": 3.0, "label": "关节误差·分段执行轨迹", "unit": "°"},
+    "joint_mae_full_deg":   {"weight": 0.10, "tolerance": 5.0, "label": "关节误差·整段chunk", "unit": "°"},
+    "joint_p95_first_deg":  {"weight": 0.10, "tolerance": 6.0, "label": "关节误差·95分位(稳健性)", "unit": "°"},
+    "gripper_mae_first":    {"weight": 0.10, "tolerance": 0.10, "label": "夹爪误差·近期", "unit": ""},
+    "gripper_f1":           {"weight": 0.10, "tolerance": null, "label": "夹爪开合判断F1", "unit": ""},
+    "grasp_timing_s":       {"weight": 0.05, "tolerance": 0.30, "label": "首次闭合时机偏差", "unit": "s"},
+    "boundary_jump_deg":    {"weight": 0.10, "tolerance": 0.50, "label": "chunk衔接跳变(平滑性)", "unit": "°"}
+  }
+}

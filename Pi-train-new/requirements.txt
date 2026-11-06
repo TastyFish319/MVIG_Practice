@@ -1,0 +1,32 @@
+# ============================================================
+# Pi-train-new 依赖（Python 3.12，conda 环境名 pi_fish）
+# 安装步骤见 docs/environment.md
+#
+# 注意：torch / torchvision 不在本文件里！要先按 GPU 驱动单独安装：
+#   pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu126
+# ============================================================
+
+# --- 核心：LeRobot 及 pi0.5 依赖（transformers / scipy / accelerate / datasets 由 extras 带入）---
+lerobot[pi,dataset,accelerate-dep]==0.6.1
+transformers==5.5.4
+accelerate==1.15.0
+datasets==4.8.5
+huggingface_hub==1.33.0
+safetensors==0.8.0
+numpy==2.2.6
+pandas==2.3.3
+pyarrow==26.0.0
+
+# --- 原始数据读取（MCAP + 内嵌 protobuf）---
+mcap==1.6.0
+protobuf>=6.31.1,<8
+opencv-python-headless==4.13.0.92
+
+# --- 训练曲线 / 评测 / 报告 ---
+tensorboard==2.21.0
+matplotlib==3.11.2
+scikit-learn==1.9.1
+Jinja2==3.1.6
+
+# --- 终端界面 ---
+rich==15.0.0

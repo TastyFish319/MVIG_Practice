@@ -1,0 +1,4 @@
+# Python 3.12；先按docs/environment.md安装匹配驱动的Torch。
+# pyproject.toml声明依赖，下面约束到已验收的主要版本。
+-c requirements-validated.txt
+-e .

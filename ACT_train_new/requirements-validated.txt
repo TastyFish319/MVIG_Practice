@@ -1,0 +1,13 @@
+# 最终验收实测的主要运行依赖；CUDA wheel按environment.md先安装。
+lerobot==0.4.4
+torch==2.7.1
+torchvision==0.22.1
+accelerate==1.15.0
+numpy==2.2.6
+datasets==4.8.5
+pyarrow==26.0.0
+mcap==1.6.0
+protobuf==6.33.6
+rich==15.0.0
+tensorboard==2.21.0
+scikit-learn==1.9.1

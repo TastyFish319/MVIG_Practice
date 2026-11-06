@@ -1,0 +1,94 @@
+# Pi 部署共享配置；完整说明见 docs/environment.md。0 exec_steps = checkpoint n_action_steps。
+control:
+  rate_hz: 100.0
+policy_server:
+  port: 8890
+  device: cuda
+  warmup_iterations: 3
+  keep_warm_s: 2.0
+  request_timeout_s: 5.0
+  startup_timeout_s: 600.0
+cameras:
+  width: 640
+  height: 480
+  fps: 30
+  max_frame_age_s: 0.2
+  serials:
+    left_wrist: '262622275249'
+    right_wrist: '262622272890'
+motion:
+  max_joint_velocity: 0.4
+  max_joint_acceleration: 0.8
+  max_gripper_velocity: 0.5
+  min_duration_s: 2.0
+  max_tracking_error: 0.35
+  settle_tolerance: 0.05
+  gripper_tolerance: 0.1
+  settle_timeout_s: 3.0
+poses:
+  zero:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.99
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.99
+  return_route: via_start
+  emergency_route: direct
+safety:
+  max_joint_velocity: 1.5
+  max_gripper_velocity: 3.0
+  max_deviation: 0.35
+  workspace_margin: 0.15
+policy:
+  max_consecutive_failures: 3
+  starvation_timeout_s: 0.4
+  jpeg_quality: 90
+  live_warmup_iterations: 3
+  latency_init_s: 0.2
+  first_plan_timeout_s: 3.0
+  plan_margin_s: 0.15
+execution:
+  default: chunk_auto
+  presets:
+    chunk_auto:
+      label: 按权重默认步数执行（推荐）
+      mode: chunk
+      exec_steps: 0
+      blend_s: 0.1
+      smoothing_tau_s: 0.0
+    chunk_15:
+      label: 每15步重新规划（30Hz时0.5秒）
+      mode: chunk
+      exec_steps: 15
+      blend_s: 0.1
+      smoothing_tau_s: 0.0
+    chunk_10:
+      label: 每10步重新规划
+      mode: chunk
+      exec_steps: 10
+      blend_s: 0.1
+      smoothing_tau_s: 0.0
+    chunk_8:
+      label: 每8步重新规划
+      mode: chunk
+      exec_steps: 8
+      blend_s: 0.1
+      smoothing_tau_s: 0.0
+recording:
+  enabled: true
+  save_images: false
+ui:
+  refresh_hz: 4.0
+inference:
+  tokenizer: pretrained/paligemma_tokenizer
+  gripper_floor: checkpoint
+  seed: 0

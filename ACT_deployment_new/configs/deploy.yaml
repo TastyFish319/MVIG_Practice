@@ -1,0 +1,89 @@
+# Deployment settings (shared by all tasks).  Task-specific things live in tasks.yaml.
+# Loaded strictly by act_deploy/config.py: unknown or missing keys stop the program.
+# Robot vectors are 14 values: [left 6 joints (rad), left gripper (0 closed..1 open),
+#                               right 6 joints (rad), right gripper].
+
+control:
+  rate_hz: 100.0                 # control loop = heartbeat for the arm workers
+
+policy_server:
+  port: 8790                     # loopback TCP port of the model server
+  device: cuda                   # cuda | cpu   (sim mode on a laptop: cpu)
+  warmup_iterations: 10          # dummy inferences before READY (CUDA init, cudnn autotune)
+  keep_warm_s: 1.0               # idle longer than this -> dummy inference (GPU clocks stay up)
+  request_timeout_s: 1.0         # one predict call longer than this = failure
+  startup_timeout_s: 240.0       # load + warmup must finish within this
+
+cameras:
+  width: 640
+  height: 480
+  fps: 30
+  max_frame_age_s: 0.2           # older frame -> skip this inference (counts as a failure)
+  serials:                       # name must match the model's observation.images.<name>
+    left_wrist: "262622275249"
+    right_wrist: "262622272890"
+
+motion:                          # smooth moves: init pose / return to zero / emergency zero
+  max_joint_velocity: 0.4        # rad/s peak
+  max_joint_acceleration: 0.8    # rad/s^2 peak
+  max_gripper_velocity: 0.5      # 1/s peak
+  min_duration_s: 2.0
+  max_tracking_error: 0.35       # rad; measured vs planned joint -> emergency hold
+  settle_tolerance: 0.05         # rad; "arrived" when all joints are this close
+  gripper_tolerance: 0.10
+  settle_timeout_s: 3.0          # not settled in time -> warning only (gravity/PD offset)
+
+poses:
+  # "零位": end of every episode, and where the motors are released.
+  zero: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.99, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.99]
+  return_route: via_start        # normal end of episode: current -> start pose -> zero | direct
+  emergency_route: direct        # 'z' after an emergency stop / fault: current -> zero
+
+safety:                          # applied to every target while the policy drives the arm
+  max_joint_velocity: 1.5        # rad/s
+  max_gripper_velocity: 3.0      # 1/s
+  max_deviation: 0.35            # rad; joint target kept within this of the measured joint
+  workspace_margin: 0.15         # rad; model-driven joints stay inside demo range +- margin
+                                 # (range read from the checkpoint; ignored if unavailable)
+
+policy:
+  max_consecutive_failures: 3    # inference/camera failures in a row -> emergency hold
+  starvation_timeout_s: 0.4      # newest plan used up for this long -> emergency hold
+  jpeg_quality: 90               # reproduce the recorder's JPEG q90 (0 = off)
+  live_warmup_iterations: 5      # real camera+state inferences after start-up (discarded)
+  latency_init_s: 0.03           # initial guess of the full inference round trip
+
+execution:                       # how plans become motion; chosen in the start menu
+  default: chunk_10
+  presets:
+    chunk_10:
+      label: 分块执行·每0.5s重规划（推荐）
+      mode: chunk
+      exec_steps: 10             # steps (1/20 s) of each plan before switching
+      blend_s: 0.15              # cross-fade old -> new plan
+      smoothing_tau_s: 0.0
+    chunk_4:
+      label: 分块执行·每0.2s重规划（同训练 n_action_steps=4）
+      mode: chunk
+      exec_steps: 4
+      blend_s: 0.1
+      smoothing_tau_s: 0.0
+    chunk_16:
+      label: 分块执行·每0.8s重规划（更果断）
+      mode: chunk
+      exec_steps: 16
+      blend_s: 0.2
+      smoothing_tau_s: 0.0
+    ensemble:
+      label: 时间集成·约15Hz重规划（最平滑，稍滞后）
+      mode: ensemble
+      rate_hz: 15.0
+      ensemble_m: 0.01
+      smoothing_tau_s: 0.0
+
+recording:
+  enabled: true                  # per-episode npz (commands + inferences) in the session dir
+  save_images: false             # also store the 256x256 model input images (large)
+
+ui:
+  refresh_hz: 4.0

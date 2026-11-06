@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=71,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acttrain"
+version = "0.1.0"
+description = "Independent reviewed NEDF3 data and LeRobot ACT training pipeline"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot==0.4.4", "numpy==2.2.6", "mcap==1.6.0", "protobuf>=6.31.1,<7",
+  "accelerate==1.15.0", "datasets==4.8.5", "pyarrow==26.0.0",
+  "opencv-python-headless>=4.10,<4.13", "matplotlib>=3.8,<4",
+  "scikit-learn>=1.5,<2", "rich>=14,<16", "tensorboard>=2.20,<3"
+]
+
+[project.scripts]
+act-preprocess = "acttrain.cli.preprocess:main"
+act-train = "acttrain.cli.train:main"
+act-evaluate = "acttrain.cli.evaluate:main"
+act-report = "acttrain.cli.report:main"
+act-doctor = "acttrain.cli.doctor:main"
+act-dataset = "acttrain.cli.dataset:main"
+
+[tool.setuptools.packages.find]
+include = ["acttrain*"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120

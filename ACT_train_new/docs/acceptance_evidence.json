@@ -1,0 +1,148 @@
+{
+  "status": "passed",
+  "real_preprocessing": true,
+  "real_act_single_gpu": "state21",
+  "real_act_dual_gpu": "state14",
+  "four_gpu": "not_run_gpu0_reserved",
+  "steps_per_run": 2,
+  "closed_loop_robot_test": false,
+  "unit_tests": {
+    "passed": 19,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "data_validation": {
+    "status": "passed",
+    "local_training_executed": false,
+    "splits": {
+      "train": {
+        "episodes": 1,
+        "rows": 366
+      },
+      "val": {
+        "episodes": 1,
+        "rows": 495
+      }
+    },
+    "checked_numeric_rows": 861,
+    "legal_action_windows": 799,
+    "checked_chunk_samples": 4,
+    "checked_rgb_roundtrips": 12,
+    "normalization": "train_only",
+    "action_target": "next_50ms_leader_right_absolute",
+    "source_timestamp_causal": true
+  },
+  "versions": {
+    "lerobot": "0.4.4",
+    "torch": "2.7.1+cu126",
+    "torchvision": "0.22.1+cu126",
+    "accelerate": "1.15.0",
+    "numpy": "2.2.6",
+    "datasets": "4.8.5",
+    "pyarrow": "26.0.0",
+    "mcap": "1.6.0",
+    "protobuf": "6.33.6",
+    "rich": "15.0.0",
+    "tensorboard": "2.21.0",
+    "scikit-learn": "1.9.1"
+  },
+  "runs": {
+    "acceptance_state21_1gpu": {
+      "status": {
+        "status": "completed",
+        "stage": "completed",
+        "supervisor_pid": 2030025,
+        "elapsed_seconds": 58.85436511039734,
+        "visible_devices": "1",
+        "archive": "acceptance_state21_1gpu_statistics.zip"
+      },
+      "execution": {
+        "status": "passed",
+        "requested_gpus": "1",
+        "visible_devices": "1",
+        "devices": [
+          "cuda:0"
+        ],
+        "workers": 1,
+        "batch_size_per_gpu": 16,
+        "cpu_threads_per_worker": 2,
+        "elapsed_seconds": 22.566921237972565
+      },
+      "contracts": [
+        {
+          "step": 1,
+          "state_dim": 21,
+          "action_schema": 2,
+          "velocity_contract": true
+        },
+        {
+          "step": 2,
+          "state_dim": 21,
+          "action_schema": 2,
+          "velocity_contract": true
+        }
+      ],
+      "checkpoint_count": 2,
+      "ranking_count": 2,
+      "tensorboard_events": 1,
+      "policy_lr": [
+        5e-06,
+        2.5e-06
+      ],
+      "backbone_lr": [
+        1e-05,
+        1e-05
+      ],
+      "zip_bytes": 2622615
+    },
+    "acceptance_state14_2gpu": {
+      "status": {
+        "status": "completed",
+        "stage": "completed",
+        "supervisor_pid": 2030305,
+        "elapsed_seconds": 49.27754044532776,
+        "visible_devices": "1,2",
+        "archive": "acceptance_state14_2gpu_statistics.zip"
+      },
+      "execution": {
+        "status": "passed",
+        "requested_gpus": "2",
+        "visible_devices": "1,2",
+        "devices": [
+          "cuda:0",
+          "cuda:1"
+        ],
+        "workers": 2,
+        "batch_size_per_gpu": 16,
+        "cpu_threads_per_worker": 2,
+        "elapsed_seconds": 26.456543975975364
+      },
+      "contracts": [
+        {
+          "step": 1,
+          "state_dim": 14,
+          "action_schema": 2,
+          "velocity_contract": false
+        },
+        {
+          "step": 2,
+          "state_dim": 14,
+          "action_schema": 2,
+          "velocity_contract": false
+        }
+      ],
+      "checkpoint_count": 2,
+      "ranking_count": 2,
+      "tensorboard_events": 1,
+      "policy_lr": [
+        5e-06,
+        2.5e-06
+      ],
+      "backbone_lr": [
+        1e-05,
+        1e-05
+      ],
+      "zip_bytes": 2592883
+    }
+  }
+}

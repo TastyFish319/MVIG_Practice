@@ -1,0 +1,44 @@
+# Statistics are managed separately.
+/Pi-statistics/
+
+# Local environments and interpreter caches.
+**/.venv*/
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/*.egg-info/
+**/node_modules/
+**/.checks/
+*.py[cod]
+
+# Machine-specific settings.
+.env
+.env.*
+!.env.example
+local.env
+review.local.json
+
+# Original data, weights and generated outputs: keep empty directory markers.
+**/raw_data/*
+!**/raw_data/.gitkeep
+**/dataset/*
+!**/dataset/.gitkeep
+**/checkpoints/*
+!**/checkpoints/.gitkeep
+**/pretrained/*
+!**/pretrained/.gitkeep
+**/runs/*
+!**/runs/.gitkeep
+**/logs/*
+!**/logs/.gitkeep
+/data_review/tasks/*
+!/data_review/tasks/.gitkeep
+*.mcap
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.zip
+*.log
+*.partial
+*.partial/

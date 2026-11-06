@@ -1,6 +1,6 @@
 # ACT_train_new
 
-独立的 ACT 数据与训练工程。保留现有 LeRobot 0.4.4 模型和 v2/v3 输入输出语义，提供中文一键入口。本轮用于内部训练，不进行公开发布。
+独立的 ACT 数据与训练工程。保留现有 LeRobot 0.4.4 模型和 v2/v3 输入输出语义，提供中文一键入口。数据与模型权重由使用者自行准备。
 
 ```text
 原始MCAP + 审核记录 → 按episode划分 → LeRobot train/val + trace
